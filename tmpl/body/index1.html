@@ -1,0 +1,22 @@
+{% extends "layout.tmpl" %}
+{% block title %}Home{% endblock %}
+{% block main %}
+<table class='table table-striped'>
+  <tr>
+    <th>id</th>
+    <th>date</th>
+    <th>Visitor</th>
+    <th>Home</th>
+    <th>Link</th>
+  </tr>
+  {% for boxscore in boxscores %}
+  <tr>
+    <td>{{boxscore.id}}</td>
+    <td>{{boxscore.gamedate}}</td>
+    <td>{{boxscore.vteamstr}}</td>
+    <td>{{boxscore.hteamstr}}</td>
+    <td><a href='{{boxscore.link}}'>{{boxscore.link}}</a></td>
+  </tr>
+  {% endfor %}
+</table
+{% endblock %}

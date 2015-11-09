@@ -1,0 +1,43 @@
+{% extends "layout.tmpl" %}
+{% block title %}Home{% endblock %}
+{% block main %}
+<blockquote>Point Variance: {{summary.var_point}}<br />Lower Variance is better</blockquote>
+<blockquote>Point Avg: {{summary.point_avg}}</blockquote>
+<table class='table table-striped'>
+  <tr>
+    <th>id</th>
+    <th>Game</th>
+    <th>Team</th>
+    <th>Player</th>
+    <th>G</th>
+    <th>A</th>
+    <th>Pts</th>
+    <th>Shots</th>
+    <th>TOI</th>
+  </tr>
+  {% for data in decoded_data %}
+  <tr>
+    <td>{{data.id}}</td>
+    <td>{{data.boxscore}}</td>
+    <td>{{data.team}}</td>
+    <td>{{data.player}}</td>
+    <td>{{data.goals}}</td>
+    <td>{{data.assists}}</td>
+    <td>{{data.points}}</td>
+    <td>{{data.shots}}</td>
+    <td>{{data.time_on_ice}}</td>
+  </tr>
+  {% endfor %}
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>{{summary.goals}}</td>
+    <td>{{summary.assists}}</td>
+    <td>{{summary.points}}</td>
+    <td>{{summary.shots}}</td>
+    <td>{{summary.time_on_ice}}</td>
+  </tr>
+</table>
+{% endblock %}

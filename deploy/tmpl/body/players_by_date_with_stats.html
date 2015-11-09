@@ -1,0 +1,44 @@
+{% extends "layout.tmpl" %}
+{% block title %}Home{% endblock %}
+{% block main %}
+<table class='table table-striped'>
+  <tr>
+    <th>Player</th>
+    <th>Position</th>
+    <th>Team</th>
+    <th>GP</th>
+    <th>G</th>
+    <th>A</th>
+    <th>Pts</th>
+    <th>Shots</th>
+    <th>TOI</th>
+    <th>DK Points</th>
+    <th title='Block Shots are excluded'>FPPG</th>
+    <th>Salary</th>
+    <th>FPPG/Salary</th>
+    <th>Variance</th>
+    <th>2015 FPPG</th>
+    <th>FPPG/MIN</th>
+  </tr>
+  {% for data in player_stats %}
+  <tr>
+    <td>{{data.player}}</td>
+    <td>{{data.position}}</td>
+    <td>{{data.team}}</td>
+    <td>{{data.GP}}</td>
+    <td>{{data.goals}}</td>
+    <td>{{data.assists}}</td>
+    <td>{{data.points}}</td>
+    <td>{{data.shots}}</td>
+    <td>{{data.time_on_ice}}</td>
+    <td>{{data.dk_points}}</td>
+    <td>{{data.fppg}}</td>
+    <td>{{data.salary}}</td>
+    <td>{{data.fppgsal}}</td>
+    <td>{{data.variance}}</td>
+    <td></td>
+    <td>{{data.dk_avg_points}}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}
